@@ -3,20 +3,20 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
-use ApiPlatform\Core\Annotation\ApiProperty;
+use App\Repository\TopicRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * Liste des campus
+ * Liste des thèmes
  *
  * @ORM\Entity
  */
 #[ApiResource(mercure: true)]
-class Campus
+class Topic
 {
     /**
-     * Indentifiant unique du campus
+     * Indentifiant unique du thème
      *
      * @ORM\Id
      * @ORM\Column(type="guid")
@@ -25,15 +25,27 @@ class Campus
     public string $id = '';
 
     /**
-     * Nom du campus
+     * Nom du thème
      *
      * @ORM\Column(type="string", length=255)
      */
     #[Assert\NotBlank]
-    public string $name = '';
+    private string $name = '';
 
     public function getId(): ?string
     {
         return $this->id;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): self
+    {
+        $this->name = $name;
+
+        return $this;
     }
 }
