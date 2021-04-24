@@ -3,35 +3,36 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
+use ApiPlatform\Core\Annotation\ApiProperty;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * This is a dummy entity. Remove it!
+ * Liste des campus
  *
  * @ORM\Entity
  */
 #[ApiResource(mercure: true)]
-class Greeting
+class Campus
 {
     /**
-     * The entity ID
+     * Indentifiant unique du campus
      *
      * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="guid")
+     * @ORM\GeneratedValue(strategy="UUID")
      */
-    private ?int $id = null;
+    public string $id = '';
 
     /**
-     * A nice person
+     * Nom du campus
      *
      * @ORM\Column
      */
     #[Assert\NotBlank]
     public string $name = '';
 
-    public function getId(): ?int
+    public function getId(): ?string
     {
         return $this->id;
     }
