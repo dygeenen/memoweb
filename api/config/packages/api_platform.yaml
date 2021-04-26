@@ -1,6 +1,7 @@
 api_platform:
-    title: Hello API Platform
-    version: 1.0.0
+    title: 'Memoweb'
+    version: 2
+    description: 'Portail des Sujets de Mémoires, Projets, Travaux et Stages de fin d´études au Pôle Santé (Université libre de Bruxelles)'
     mapping:
         paths: ['%kernel.project_dir%/src/Entity']
     patch_formats:
@@ -15,4 +16,9 @@ api_platform:
         stateless: true
         # Good cache defaults
         cache_headers:
-            vary: ['Content-Type', 'Authorization', 'Origin']
+            vary: ['Content-Type', 'Authorization', 'Origin']        
+    openapi:
+        contact:
+            name: 'Pôle Santé - Informatique'
+            url: 'https://portail.ulb.be/pole-sante-informatique'
+            email: 'support@ulb.be'
